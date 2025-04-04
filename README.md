@@ -1,4 +1,4 @@
-# Terminimal
+# Termigawa - Terminals in Kanagawa
 
 [![Build Status](https://github.com/pawroman/zola-theme-terminimal/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/pawroman/zola-theme-terminimal/actions/workflows/pages/pages-build-deployment)
 ![No JavaScript](https://img.shields.io/badge/JavaScript-none-brightgreen.svg)
@@ -8,17 +8,31 @@
 See the live demo (of the default configuration) here:
 https://pawroman.github.io/zola-theme-terminimal/
 
-Tested with Zola v0.16.1. Please note that earlier versions might not work because of breaking changes across Zola versions.
+Tested with Zola v0.19.2.
+
+Please note that earlier (and older) versions might not work because of breaking
+changes across Zola versions.
+
+### Spoon Disclaimer (ursa-major)
+
+The original version of this theme comes courtesy of Radosław Kozieł, who
+originally forked the _Terminal_ theme for Hugo and made a few adjustments which
+are detailed below.
+
+I have taken some additional liberties with regard to certain stylistic choices
+(fonts, colors, layout, etc). Notably:
 
 #### Fork disclaimer
 
-This theme is a fork (not a port) of "Terminal" Hugo theme
-by Radosław Kozieł (aka. panr):
+This theme is a fork (not a port) of "Terminal" Hugo theme by Radosław Kozieł
+(aka. panr):
 https://github.com/panr/hugo-theme-terminal
 
 Many thanks for that outstanding original theme, Radek!
 
-## Changes compared to the original theme
+For more information about this fork and the differences to the original theme,
+please see: [Changes compared to the original
+theme](#changes-compared-to-the-original-theme) below.
 
 - Slight changes in the layout and styling.
 
@@ -28,12 +42,14 @@ Many thanks for that outstanding original theme, Radek!
   - The post title underline is dashed instead of doubly-dotted.
   - All links are underlined, as per
     [Brutalist Web Design Guidelines](https://www.brutalist-web.design/).
-  - Tweaks to header font sizes.
+  - Tweaks to heaer font sizes.
   - Minor footer tweaks.
+
+## Versioning
 
 - Absolutely **no JavaScript**.
 
-  - No JavaScript needed to pre-process anything.
+  - No JavaScript neeed to pre-process anything.
     Zola with its Sass pre-processor is the only dependency.
   - There's no menu trigger.
   - Things load crazy fast, as it's all static content.
@@ -45,24 +61,26 @@ Many thanks for that outstanding original theme, Radek!
 - All references to external URLs (e.g. Google CDN) have been removed.
   This theme's static assets are meant to be served from where it's hosted.
 
-- [Hack](https://github.com/source-foundry/Hack) is the default font.
-
 - The default color theme is blue (original uses orange).
 
-### New features
+### Features
 
-- You can pick the accent color as well as background color.
-  There's a new `dark` background. See [Configuration](#configuration)
-  below for details.
+- You can pick the accent color as well as background color. There's a new
+  `dark` background. See [Configuration](#configuration) below for details.
+
 - Active "section" links will change color indicating the
   active section. This is all static, done at template level.
 
-## Features retained from the original
-
 - 5 color themes, depending on your preference:
   blue (default), green, orange, pink, red.
+
 - The shortcodes `image` and `figure` (See [Shortcodes](#shortcodes)).
+
 - Fully responsive.
+
+  Please check the [GitHub
+  releases](https://github.com/pawroman/zola-theme-terminimal/releases) to see a
+  change log and work out if there's any breaking changes.
 
 ## How to start
 
@@ -72,7 +90,8 @@ Option A: clone the theme directly into your Zola site folder:
 $ git clone https://github.com/pawroman/zola-theme-terminimal.git themes/terminimal
 ```
 
-Option B: include it as a git submodule (it's better if you plan to use CI builders):
+Option B: include it as a git submodule (it's better if you plan to use CI
+builders):
 
 ```
 $ git submodule add https://github.com/pawroman/zola-theme-terminimal.git themes/terminimal
@@ -119,7 +138,7 @@ Example:
 
 Same as `image`, but with a few extra optional arguments:
 
-- **`caption`**
+- **`caption`** (supports markdown)
 - **`caption_position`** (center [default] | left | right)
 - **`caption_style`**
 
@@ -128,24 +147,53 @@ Example:
 ```
 {{ figure(src="http://rustacean.net/assets/rustacean-flat-gesture.png",
           style="width: 25%;",
-          position="right"
+          position="right",
           caption_position="left",
-          caption="Ferris, the (unofficial) Rust mascot",
-          caption_style="font-weight: bold; font-style: italic;") }}
+          caption="**Ferris**, the (unofficial) Rust mascot",
+          caption_style="font-style: italic;") }}
+```
+
+## OpenGraph
+
+To add an image to a post, set the `og_image` extra option to the desired image
+in the same directory of the markdown file:
+
+```toml
+[extra]
+og_image = "colocated_image.png"
+```
+
+Additionally, for the section pages and for posts to have a fallback image, add
+`default_og_image` to the `[extra]` section:
+
+```toml
+[extra]
+default_og_image = "static/ocean.jpg"
 ```
 
 ## Configuration
 
+### Only show the post's description
+
+On each post you can specify the following:
+
+```toml
+description = "test description"
+
+[extra]
+show_only_description = true
+```
+
+This will render `test description` under this particular post on the homepage
+instead of a summary.
+
 ### Colors
 
-Both the accent colors and background colors are
-configurable.
+Both the accent colors and background colors are configurable.
 
-By default, both accent and background are set
-to `blue`.
+By default, both accent and background are set to `blue`.
 
-To configure menu, add this in `[extra]` section
-of your `config.toml`:
+To configure menu, add this in `[extra]` section of your `config.toml`:
 
 ```toml
 [extra]
@@ -163,8 +211,8 @@ background_color = "dark"
 
 ### Logo text and link
 
-You can set the "logo" text and what it links to,
-by modifying `config.toml` like so:
+You can set the "logo" text and what it links to, by modifying `config.toml`
+like so:
 
 ```toml
 [extra]
@@ -189,8 +237,8 @@ You can set the footer's copyright author name like this:
 author = "My Name"
 ```
 
-If you don't like the default copyright text,
-you can set it to completely custom HTML:
+If you don't like the default copyright text, you can set it to completely
+custom HTML:
 
 ```toml
 [extra]
@@ -237,15 +285,14 @@ a "tags" taxonomy in your `config.toml`:
 taxonomies = [{ name = "tags" }]
 ```
 
-Enabling tags will create a new `/tags` page, and
-cause them to show up in `archive` section. Note
-that you still need to create a menu link to the tags
+Enabling tags will create a new `/tags` page, and cause them to show up in
+`archive` section. Note that you still need to create a menu link to the tags
 page manually.
 
 ### Pagination
 
-Pagination is fully supported for post list (main site)
-and intra-post (you can navigate to earlier and later posts).
+Pagination is fully supported for post list (main site) and intra-post (you can
+navigate to earlier and later posts).
 
 To make sure pagination works properly, you must first configure
 it in `content/_index.md`:
@@ -277,41 +324,16 @@ post_view_navigation_prompt = "Read more"
 
 ### Language code
 
-Internationalization / translation is not supported
-but you can set the HTML language code for your
-site:
+Internationalization / translation is not supported but you can set the HTML
+language code for your site:
 
 ```toml
 default_language = "en"
 ```
 
-### Hack font subset
-
-By default, the theme uses a mixed subset of the Hack font.
-Normal weight font uses full character set
-(for Unicode icons and special symbols), but all others
-(bold, italic etc) use a limited subset.
-
-This results in much smaller transfer sizes, but the subset
-might not contain all the Unicode characters you need.
-
-You can enable full unicode support in `config.toml`:
-
-```toml
-[extra]
-
-# Use full Hack character set, not just a subset.
-# Switch this to true if you need full unicode support.
-# Defaults to false.
-use_full_hack_font = true
-```
-
-Also see [Hack's docs](https://github.com/source-foundry/Hack/blob/master/docs/WEBFONT_USAGE.md).
-
 ### Favicon
 
-The theme supports adding a global favicon (applies to
-all pages) to the site:
+The theme supports adding a global favicon (applies to all pages) to the site:
 
 ```toml
 # Optional: Global favicon URL and mimetype.
@@ -324,7 +346,8 @@ favicon_mimetype = "image/png"
 
 ### Page titles
 
-The theme allows you to configure how the page titles (the `<title>` elements) are rendered.
+The theme allows you to configure how the page titles (the `<title>` elements)
+are rendered.
 
 Use `"combined"` to render titles as `"Page title | Main title"`.
 
@@ -346,11 +369,11 @@ All the configuration options are also described in
 
 ## Extending
 
-Each of the templates defines named blocks, so
-it should be quite easy to customize the most common things.
+Each of the templates defines named blocks, so it should be quite easy to
+customize the most common things.
 
-For example, if you want to add extra `<meta>` tags to the
-base template, `index.html`, create file like this in `templates/index.html`:
+For example, if you want to add extra `<meta>` tags to the base template,
+`index.html`, create file like this in `templates/index.html`:
 
 ```html
 {% extends "terminimal/templates/index.html" %}
@@ -375,6 +398,3 @@ Original theme: Copyright © 2019 Radosław Kozieł ([@panr](https://twitter.com
 The theme is released under the MIT License.
 Check the [license file](../master/LICENSE.md)
 for more information.
-
-The license for Hack fonts used is included in
-[LICENSE-Hack.md](../master/LICENSE-Hack.md).

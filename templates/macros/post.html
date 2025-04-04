@@ -1,7 +1,11 @@
 {# vim: set ft=html.jinja syntax=on: #}
 {% import "macros/icon.html" as icon_macros %}
-{% macro content(page, summary) %}
-{%- if summary and page.summary %}
+{% macro content(page, summary, show_only_description) %}
+{%- if show_only_description %}
+<div class="post-content">
+  {{ page.description | safe }}
+</div>
+{% elif summary and page.summary %}
 <div class="post-content">
   {{ page.summary | safe }}
 </div>
@@ -13,6 +17,7 @@
   </a>
 </div>
 {% else %}
+{#- full content -#}
 <div class="post-content">
   {{ page.content | safe }}
 </div>
@@ -87,7 +92,7 @@
   :: tags:&nbsp;
   {%- set sep = "&nbsp;" -%}
   {% endif -%}
-  {%- for tag in page.taxonomies.tags %}
+  {%- for tag in page.taxonomies.tags | sort | unique(case_sensitive=false) %}
   <a class="post-tag" href="{{ get_taxonomy_url(kind='tags', name=tag) | safe }}">#{{ tag }}</a>
   {%- if not loop.last %}{{ sep | safe }}{% endif -%}
   {% endfor -%}
