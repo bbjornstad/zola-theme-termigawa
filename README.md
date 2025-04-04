@@ -21,30 +21,32 @@ Many thanks for that outstanding original theme, Radek!
 ## Changes compared to the original theme
 
 - Slight changes in the layout and styling.
-    - Content has been centered (instead of left-aligned).
-    - The header stripes have been spaced out.
-    - Tweaks to pagination, especially on mobile (small screens).
-    - The post title underline is dashed instead of doubly-dotted.
-    - All links are underlined, as per
-      [Brutalist Web Design Guidelines](https://www.brutalist-web.design/).
-    - Tweaks to header font sizes.
-    - Minor footer tweaks.
+
+  - Content has been centered (instead of left-aligned).
+  - The header stripes have been spaced out.
+  - Tweaks to pagination, especially on mobile (small screens).
+  - The post title underline is dashed instead of doubly-dotted.
+  - All links are underlined, as per
+    [Brutalist Web Design Guidelines](https://www.brutalist-web.design/).
+  - Tweaks to header font sizes.
+  - Minor footer tweaks.
 
 - Absolutely **no JavaScript**.
-    - No JavaScript needed to pre-process anything.
-      Zola with its Sass pre-processor is the only dependency.
-    - There's no menu trigger.
-    - Things load crazy fast, as it's all static content.
-    - Prism.js syntax highlighting is not supported (you can use
-      [Zola's](https://www.getzola.org/documentation/content/syntax-highlighting/)).
-      
+
+  - No JavaScript needed to pre-process anything.
+    Zola with its Sass pre-processor is the only dependency.
+  - There's no menu trigger.
+  - Things load crazy fast, as it's all static content.
+  - Prism.js syntax highlighting is not supported (you can use
+    [Zola's](https://www.getzola.org/documentation/content/syntax-highlighting/)).
+
 - All references to social media (e.g. Twitter, OpenGraph) have been removed.
 
 - All references to external URLs (e.g. Google CDN) have been removed.
   This theme's static assets are meant to be served from where it's hosted.
-  
+
 - [Hack](https://github.com/source-foundry/Hack) is the default font.
-  
+
 - The default color theme is blue (original uses orange).
 
 ### New features
@@ -53,7 +55,7 @@ Many thanks for that outstanding original theme, Radek!
   There's a new `dark` background. See [Configuration](#configuration)
   below for details.
 - Active "section" links will change color indicating the
-  active section. This is all static, done at template level. 
+  active section. This is all static, done at template level.
 
 ## Features retained from the original
 
@@ -103,7 +105,7 @@ Required arguments:
 Optional arguments:
 
 - **`alt`**
-- **`position`** (center \[default\] | left | right)
+- **`position`** (center [default] | left | right)
 - **`style`**
 
 Example:
@@ -112,13 +114,13 @@ Example:
 {{ image(src="/img/hello.png", alt="Hello Friend",
          position="left", style="border-radius: 8px;") }}
 ```
-  
+
 ### `figure`
 
 Same as `image`, but with a few extra optional arguments:
 
 - **`caption`**
-- **`caption_position`** (center \[default\] | left | right)
+- **`caption_position`** (center [default] | left | right)
 - **`caption_style`**
 
 Example:
@@ -149,13 +151,13 @@ of your `config.toml`:
 [extra]
 
 # One of: blue, green, orange, pink, red.
-# Defaults to blue. 
+# Defaults to blue.
 accent_color = "green"
 
 # One of: blue, dark, green, orange, pink, red.
 # Enabling dark background will also modify primary font color
 # to be darker.
-# Defaults to accent color (or, if not accent color specified, to blue). 
+# Defaults to accent color (or, if not accent color specified, to blue).
 background_color = "dark"
 ```
 
@@ -185,7 +187,7 @@ You can set the footer's copyright author name like this:
 # copyright text. Apart from author, it will
 # contain current year and a link to the theme.
 author = "My Name"
-``` 
+```
 
 If you don't like the default copyright text,
 you can set it to completely custom HTML:
@@ -211,18 +213,18 @@ of your `config.toml`:
 
 # menu is enabled by adding menu_items (optional)
 menu_items = [
-    # each of these is optional, name and url are required
-    # $BASE_URL is going to be substituted by base_url from configuration
-    {name = "blog", url = "$BASE_URL"},
-    
-    # tags should only be enabled if you have "tags" taxonomy
-    # see documentation below for more details
-    {name = "tags", url = "$BASE_URL/tags"},
-    {name = "archive", url = "$BASE_URL/archive"},
-    {name = "about me", url = "$BASE_URL/about"},
-    
-    # set newtab to true to make the link open in new tab
-    {name = "github", url = "url-to-your-github", newtab = true},
+  # each of these is optional, name and url are required
+  # $BASE_URL is going to be substituted by base_url from configuration
+  { name = "blog", url = "$BASE_URL" },
+
+  # tags should only be enabled if you have "tags" taxonomy
+  # see documentation below for more details
+  { name = "tags", url = "$BASE_URL/tags" },
+  { name = "archive", url = "$BASE_URL/archive" },
+  { name = "about me", url = "$BASE_URL/about" },
+
+  # set newtab to true to make the link open in new tab
+  { name = "github", url = "url-to-your-github", newtab = true },
 ]
 ```
 
@@ -232,12 +234,10 @@ The theme optionally supports tags. To enable them, create
 a "tags" taxonomy in your `config.toml`:
 
 ```toml
-taxonomies = [
-    {name = "tags"},
-]
+taxonomies = [{ name = "tags" }]
 ```
 
-Enabling tags will create a new `/tags` page, and 
+Enabling tags will create a new `/tags` page, and
 cause them to show up in `archive` section. Note
 that you still need to create a menu link to the tags
 page manually.
@@ -368,7 +368,7 @@ If you spot any bugs or wish to contribute new features, please create a new
 
 ## License
 
-Copyright © 2019 Paweł Romanowski (pawroman)
+Copyright © 2025 Bailey Bjornstad via Paweł Romanowski (pawroman)
 
 Original theme: Copyright © 2019 Radosław Kozieł ([@panr](https://twitter.com/panr))
 

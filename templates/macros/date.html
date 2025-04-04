@@ -1,3 +1,4 @@
+{# vim: set ft=html.jinja syntax=on: #}
 {% macro now_year() %}
-    {{ now() | date(format="%Y") }}
+{{ now() | date(format="%Y") }}
 {% endmacro %}

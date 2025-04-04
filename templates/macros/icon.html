@@ -1,0 +1,5 @@
+{# vim: set ft=html.jinja syntax=on: #}
+{%- macro inline_icon(char, weight="medium", size="medium") -%}
+<span class="icon-{{ weight }}-{{ size }}">{{ char }}</span>
+<span class="iconified" iconweight="{{ weight }}" iconsize="{{ size }}">{{ char }}</span>
+{% endmacro inline_icon %}

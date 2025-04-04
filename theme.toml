@@ -1,5 +1,5 @@
 name = "minigawa"
-description = "A simple, minimal retro theme"
+description = "A revamped minimal terminal-styled theme"
 license = "MIT"
 homepage = "https://github.com/bbjornstad/zola-theme-termigawa"
 min_version = "0.11.0"
@@ -11,7 +11,7 @@ demo = "https://pawroman.github.io/zola-theme-terminimal/"
 name = "Bailey Bjornstad"
 homepage = "https://bjornstad.dev"
 
-[original]
+[author.original]
 author = "Paweł Romanowski"
 homepage = "https://github.com/pawroman"
 repo = "https://github.com/pawroman/zola-theme-terminimal"
@@ -28,7 +28,7 @@ accent_color = "blue"
 background_color = "blue"
 
 # The logo text - defaults to 2 non-breaking spaces.
-logo_text = "Minigawa theme - terMinimal theme port with Kanagawa.nvim colors"
+logo_text = "  "
 
 # Whether to show links to earlier and later posts
 # on each post page.
@@ -36,7 +36,7 @@ enable_post_view_navigation = true
 
 # The text shown at the bottom of a post,
 # before earlier/later post links.
-post_view_navigation_prompt = "Other posts..."
+post_view_navigation_prompt = "more ⇸"
 
 # Use full Hack character set, not just a subset.
 # Switch this to true if you need full unicode support.
